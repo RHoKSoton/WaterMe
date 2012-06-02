@@ -56,8 +56,12 @@ app.get('/api/squareLatLong/:latOne/:longOne/:latTwo/:longTwo', function(req, re
 		};
 
 		SQLQuery += 'FROM Data ';
-		SQLQuery += 'WHERE `longitude` <= "' + pointALatitude + '" AND `latitude` >= "' + pointBLatitude + '" AND `longitude` <= "' + pointALongitude + '" AND `longitude` >= "' + pointBLongitude + '"'
+		SQLQuery += 'WHERE `longitude` <= "' + pointALatitude + '" AND `latitude` >= "' + pointBLatitude + '" AND `longitude` <= "' + pointALongitude + '" AND `longitude` >= "' + pointBLongitude + '" '
 		
+
+		SQLQuery += 'HAVING max(timeTaken) = timeTaken ';
+
+
 		conn.query(SQLQuery, function(err, rows, fields) {
 			if (err) throw err;
 			res.send(rows);
