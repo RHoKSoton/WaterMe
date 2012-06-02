@@ -1,6 +1,8 @@
+
 var express = require('express'),
 app = express.createServer(),
-mysql      = require('mysql');
+mysql      = require('mysql'),
+url = require('url');
 
 var conn = mysql.createConnection({
 	host     : 'localhost',
@@ -42,12 +44,32 @@ app.get('/api/squareLatLong/:latOne/:longOne/:latTwo/:longTwo', function(req, re
 		pointBLatitude = req.params.latTwo,//'51.9947'
 		pointBLongitude = req.params.longTwo;//'-1.4976'
 
-		conn.query('SELECT * FROM Data WHERE `longitude` <= "' + pointALatitude + '" AND `latitude` >= "' + pointBLatitude + '" AND `longitude` <= "' + pointALongitude + '" AND `longitude` >= "' + pointBLongitude + '"', function(err, rows, fields) {
-				if (err) throw err;
-				res.send(rows);
+		var url_parts = url.parse(req.url, true);
+		var getQuery = url_parts.query;
 
-			});
+		var SQLQuery = 'SELECT ';
+
+		if (getQuery.select) {
+			SQLQuery += getQuery.select + ' ';
+		} else {
+			SQLQuery += '* ';
+		};
+
+		SQLQuery += 'FROM Data ';
+		SQLQuery += 'WHERE `longitude` <= "' + pointALatitude + '" AND `latitude` >= "' + pointBLatitude + '" AND `longitude` <= "' + pointALongitude + '" AND `longitude` >= "' + pointBLongitude + '"'
+		
+		conn.query(SQLQuery, function(err, rows, fields) {
+			if (err) throw err;
+			res.send(rows);
+
+		});
 	});
+
+app.get('/test', function (req, res){
+	var url_parts = url.parse(req.url, true);
+	var query = url_parts.query;
+	res.send(query);
+});
 
 app.listen(3000);
 
