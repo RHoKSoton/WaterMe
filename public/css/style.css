@@ -1,0 +1,25 @@
+body {
+	color:#111;
+	margin:0;
+	font-family:Helvetica,arial,freesans,clean,sans-serif;
+	font-size:12px;
+}
+header {
+	height:40px;
+	background-color:#eee;
+}
+.name {
+	margin:0;
+	padding:6px;
+}
+.rightnav {
+	width:50%;
+	margin-left:50%;
+}
+.leftnav {
+	width:50%;
+	float:left;
+}
+.content {
+	height:100%;
+}
