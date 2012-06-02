@@ -30,11 +30,25 @@ app.get('/api/latLong/:lat/:long', function(req, res){
 	var latitude = req.params.lat,//'51.9947'
 		longitude = req.params.long;//'-1.4976'
 
-	conn.query('SELECT * FROM Data WHERE `longitude` = "' + longitude + '" AND `latitude` = "' + latitude + '"', function(err, rows, fields) {
-		if (err) throw err;
+		conn.query('SELECT * FROM Data WHERE `longitude` = "' + longitude + '" AND `latitude` = "' + latitude + '"', function(err, rows, fields) {
+			if (err) throw err;
 			res.send(rows);
 
+		});
 	});
-});
+
+app.get('/api/squareLatLong/:latOne/:longOne/:latTwo/:longTwo', function(req, res){
+
+	var pointALatitude = req.params.latOne,//'51.9947'
+		pointALongitude = req.params.longOne,//'-1.4976'
+		pointBLatitude = req.params.latTwo,//'51.9947'
+		pointBLongitude = req.params.longTwo;//'-1.4976'
+
+		conn.query('SELECT * FROM Data WHERE `longitude` <= "' + pointALatitude + '" AND `latitude` >= "' + pointBLatitude + '" AND `longitude` <= "' + pointALongitude + '" AND `longitude` >= "' + pointBLongitude + '"', function(err, rows, fields) {
+				if (err) throw err;
+				res.send(rows);
+
+			});
+	});
 
 app.listen(3000);
