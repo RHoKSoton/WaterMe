@@ -12,27 +12,35 @@
 	#map_canvas { height: 200px; }
 	</style>
 	<script type="text/javascript"
-	src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBfOKTN7ZCmfiELpWRkwAAyAlTMfmkveR4&sensor=false">
-	</script>
+	src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBfOKTN7ZCmfiELpWRkwAAyAlTMfmkveR4&sensor=false"></script>
+	<script type="text/javascript" src="http://openlayers.org/api/OpenLayers.js"></script>
+	
 	<script type="text/javascript">
-	function initialize() {
-		var myOptions = {
-			center: new google.maps.LatLng(51, -1.5),
-			zoom: 8,
-			mapTypeId: google.maps.MapTypeId.ROADMAP
-		};
-		var map = new google.maps.Map(document.getElementById("map_canvas"),
-			myOptions);
-	}
-	</script>
+	
+  function init() {
+    map = new OpenLayers.Map("map");
+
+        var mapLayer       = new OpenLayers.Layer.OSM();
+        var fromProjection = new OpenLayers.Projection("EPSG:4326");   // Transform from WGS 1984
+        var toProjection   = new OpenLayers.Projection("EPSG:900913"); // to Spherical Mercator Projection
+        var position       = new OpenLayers.LonLat(-1.4044,50.9097).transform( fromProjection, toProjection);
+        var zoom           = 11; 
+ 
+        map.addLayer(mapLayer);
+        map.setCenter(position, zoom);
+      } 
+      
+      
+        
+    </script>
+  </head>
+  
+  <body onload="init()">
 	<script type="text/javascript">
-	alert(window.innerHeight);
 	$('.content').css("height", window.innerHeight - 40);
-
 	</script>
-
 </head>
-<body onload="initialize()">
+
 	<header>
 		<div class="leftnav">
 			<h1 class="name">WaterMe</h1>
@@ -40,8 +48,7 @@
 		<div class="rightnav"></div>
 	</header>
 	<div class="content">
-		<div id="map_canvas" style="background-color:red;width:100%; height:100%"></div>
-
+		<div id="map" style="background-color:grey;width:100%; height:100%"></div>
 	</div>
 </body>
 </html>
