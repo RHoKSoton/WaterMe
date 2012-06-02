@@ -13,12 +13,10 @@ var conn = mysql.createConnection({
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 
-
 conn.connect();
 
-
 app.get('/', function(req, res) {
-	res.render('index.ejs');
+	res.render('index.ejs')
 });
 
 app.get('/api', function(req, res) {
@@ -52,3 +50,4 @@ app.get('/api/squareLatLong/:latOne/:longOne/:latTwo/:longTwo', function(req, re
 	});
 
 app.listen(3000);
+
