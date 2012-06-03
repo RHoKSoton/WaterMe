@@ -32,3 +32,15 @@ The Fieldnames can be anything you can get when getting data with no select quer
 	"NDWI",
 	"timeTaken"
 }</pre>
+
+<p>
+<b>?from and ?till</b>
+Using a DateTime format you can request data for a peariod of time and all data for within the area selected and the time period shall be returned. If no till is made in the request we assume to the current day. Till only has effect if from has also been send in the request.
+
+Example...
+</p>
+<pre>http://localhost:3000/api/squareLatLong/10.0000/-8.2345/10.0000/-8.2345?from=2011-06-10T23:00:00.000
+
+Returns:
+
+[{"ID":1,"latitude":"10.0000","longitude":"-8.2345","bandOne":600,"bandTwo":3371,"bandThree":303,"bandFour":803,"bandFive":3878,"bandSix":2025,"bandSeven":817,"vegetation":0.697809,"cloud":0,"NDWI":-0.0699407,"timeTaken":"2012-05-26T23:00:00.000Z"}]</pre>
