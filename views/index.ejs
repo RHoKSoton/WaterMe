@@ -33,7 +33,16 @@
 	</div>
 	<script type="text/javascript">
 
-	$('#map').height($(window).height() - $('header').height());
+	function ResizeMap () {
+		$('#map').height($(window).height() - $('header').height());
+	}
+	
+	// Run ResizeMap on first Run
+	ResizeMap();
+
+	// Resize Map When Window Size Changes
+	$(window).resize(function() {ResizeMap()});
+	
 
 	var map = new L.Map('map');
 
