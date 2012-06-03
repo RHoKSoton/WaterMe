@@ -74,11 +74,6 @@ app.get('/api/squareLatLong/:latOne/:longOne/:latTwo/:longTwo', function(req, re
 		});
 	});
 
-app.get('/test', function (req, res){
-	var url_parts = url.parse(req.url, true);
-	var query = url_parts.query;
-	res.send(query);
-});
 
 app.listen(3000);
 
