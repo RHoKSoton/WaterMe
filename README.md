@@ -1,8 +1,10 @@
 #WaterMe
 
-WaterMe is in two modules the Web module which is in the repository your looking at and the DataWorker/Feeder Located at [https://github.com/RHoKSoton/WaterMeFeeder](https://github.com/RHoKSoton/WaterMeFeeder).
+Aim: To extract and visualise NDWI data processed from raw Modis Data
 
-For an insite into what this project does go to the RHoK (Random Hacks of Kindness) Entry at [http://www.rhok.org/problems/development-operational-water-stress-product-satellite-imagery](http://www.rhok.org/problems/development-operational-water-stress-product-satellite-imagery)
+WaterMe is in two modules, the Web module which is in the repository you're looking at and the DataWorker/Feeder Located at [https://github.com/RHoKSoton/WaterMeFeeder](https://github.com/RHoKSoton/WaterMeFeeder).
+
+For an insight into what this project does go to the RHoK (Random Hacks of Kindness) Entry at [http://www.rhok.org/problems/development-operational-water-stress-product-satellite-imagery](http://www.rhok.org/problems/development-operational-water-stress-product-satellite-imagery)
 
 ##SetUp and Run
 
