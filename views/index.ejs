@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>WaterMe</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="description" content="Visualises the amount of water in foliage using satellite data" />
+	<meta name="keywords" content="water, drought, map, visualise, foliage, satellite" />
+
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
@@ -17,30 +21,28 @@
 	
 	<script type="text/javascript">
 	
-  function init() {
-    map = new OpenLayers.Map("map");
-
-        var mapLayer       = new OpenLayers.Layer.OSM();
-        var fromProjection = new OpenLayers.Projection("EPSG:4326");   // Transform from WGS 1984
-        var toProjection   = new OpenLayers.Projection("EPSG:900913"); // to Spherical Mercator Projection
-        var position       = new OpenLayers.LonLat(-1.4044,50.9097).transform( fromProjection, toProjection);
-        var zoom           = 11; 
- 
-        map.addLayer(mapLayer);
-        map.setCenter(position, zoom);
-      } 
-      
-      
-        
-    </script>
-  </head>
-  
-  <body onload="init()">
-	<script type="text/javascript">
 	$('.content').css("height", window.innerHeight - 40);
+
+	function init() {
+		map = new OpenLayers.Map("map");
+
+		var mapLayer       = new OpenLayers.Layer.OSM();
+		var fromProjection = new OpenLayers.Projection("EPSG:4326");   // Transform from WGS 1984
+		var toProjection   = new OpenLayers.Projection("EPSG:900913"); // to Spherical Mercator Projection
+		var position       = new OpenLayers.LonLat(-1.4044,50.9097).transform( fromProjection, toProjection);
+		var zoom           = 11; 
+
+		map.addLayer(mapLayer);
+		map.setCenter(position, zoom);
+	} 
+
 	</script>
+
+
 </head>
 
+<body onload="init()">
+	
 	<header>
 		<div class="leftnav">
 			<h1 class="name">WaterMe</h1>
