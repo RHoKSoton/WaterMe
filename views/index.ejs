@@ -33,6 +33,8 @@
 	</div>
 	<script type="text/javascript">
 
+	$('#map').height($(window).height() - $('header').height());
+
 	var map = new L.Map('map');
 
 	var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
