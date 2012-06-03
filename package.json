@@ -1,0 +1,21 @@
+{
+  "author": "RHoKSoton",
+  "name": "WaterMe",
+  "description": "Visualises the amount of water in foliage using satellite data.",
+  "version": "0.0.0",
+  "homepage": "https://github.com/RHoKSoton/WaterMe",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/RHoKSoton/WaterMe.git"
+    },
+  "dependencies": {
+    "express":"2.5.9",
+    "mysql":"2.0.0-alpha2",
+    "ejs":"0.7.1"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+   }
+}
